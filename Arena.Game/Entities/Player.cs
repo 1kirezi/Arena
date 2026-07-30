@@ -13,6 +13,8 @@ public class Player : IDamageable, IMovable
     private Texture2D _texture;
     private float _reloadTimer;
     private float _shootCooldownTimer;
+    private float _invincibilityTimer = 0f;
+    private const float InvincibilityDuration = 1.0f;
 
     public Vector2 Position { get; set; }
     public Vector2 Velocity { get; set; }
@@ -21,6 +23,7 @@ public class Player : IDamageable, IMovable
     public int Ammo { get; private set; } = Config.PlayerMaxAmmo;
     public float Speed { get; set; } = Config.PlayerSpeed;
     public bool IsReloading { get; private set; }
+    public bool IsInvincible => _invincibilityTimer > 0;
     public bool IsDead => Health <= 0;
     public Rectangle Bounds => new Rectangle(
         (int)Position.X - 16,
@@ -40,7 +43,6 @@ public class Player : IDamageable, IMovable
     {
         float delta = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-        // Handle reload timer
         if (IsReloading)
         {
             _reloadTimer -= delta;
@@ -51,9 +53,11 @@ public class Player : IDamageable, IMovable
             }
         }
 
-        // Handle shoot cooldown
         if (_shootCooldownTimer > 0)
             _shootCooldownTimer -= delta;
+
+        if (_invincibilityTimer > 0)
+            _invincibilityTimer -= delta;
 
         // Movement
         var keyboard = Keyboard.GetState();
@@ -79,8 +83,6 @@ public class Player : IDamageable, IMovable
         }
 
         Position += Velocity * delta;
-
-        // Clamp player within screen bounds
         Position = new Vector2(
             MathHelper.Clamp(Position.X, 20, Config.ScreenWidth - 20),
             MathHelper.Clamp(Position.Y, 20, Config.ScreenHeight - 20)
@@ -95,13 +97,25 @@ public class Player : IDamageable, IMovable
     public Projectile Shoot(Vector2 targetPosition, Texture2D projectileTexture)
     {
         if (!CanShoot()) return null;
-
         Ammo--;
         _shootCooldownTimer = Config.ShootCooldown;
-
         Vector2 direction = targetPosition - Position;
         direction.Normalize();
+        return new Projectile(
+            Position + direction * 20,
+            direction * Config.ProjectileSpeed,
+            Config.ProjectileDamage,
+            projectileTexture
+        );
+    }
 
+    // New method for shooting in a direction (not toward mouse)
+    public Projectile ShootDirection(Vector2 direction, Texture2D projectileTexture)
+    {
+        if (!CanShoot()) return null;
+        Ammo--;
+        _shootCooldownTimer = Config.ShootCooldown;
+        if (direction.Length() > 0) direction.Normalize();
         return new Projectile(
             Position + direction * 20,
             direction * Config.ProjectileSpeed,
@@ -121,7 +135,9 @@ public class Player : IDamageable, IMovable
 
     public void TakeDamage(int damage)
     {
+        if (IsInvincible) return;
         Health = Math.Max(0, Health - damage);
+        _invincibilityTimer = InvincibilityDuration;
     }
 
     public void Heal(int amount)
@@ -136,7 +152,8 @@ public class Player : IDamageable, IMovable
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        spriteBatch.Draw(_texture, Position, null, Color.White, 0f,
+        Color color = IsInvincible ? Color.Yellow : Color.White;
+        spriteBatch.Draw(_texture, Position, null, color, 0f,
             new Vector2(_texture.Width / 2, _texture.Height / 2), 1f, SpriteEffects.None, 0f);
     }
 

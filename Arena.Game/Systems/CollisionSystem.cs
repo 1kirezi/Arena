@@ -1,4 +1,3 @@
-using System;
 using Microsoft.Xna.Framework;
 using Arena.Game.Entities;
 using Arena.Game.Interfaces;
@@ -12,7 +11,7 @@ public class CollisionSystem
         Player player,
         Generator generator,
         List<Zombie> zombies,
-        List<Projectile> projectiles,
+        List<Projectile> projectiles,  // can be null
         List<PowerUp> powerUps)
     {
         // Player vs Zombies
@@ -22,22 +21,30 @@ public class CollisionSystem
             if (player.Bounds.Intersects(zombie.Bounds))
             {
                 player.TakeDamage(zombie.Damage);
-                zombie.TakeDamage(zombie.MaxHealth); // Kill zombie on contact
+                Vector2 push = zombie.Position - player.Position;
+                if (push.Length() > 0)
+                {
+                    push.Normalize();
+                    zombie.Position += push * 30;
+                }
             }
         }
 
-        // Projectiles vs Zombies
-        foreach (var projectile in projectiles.ToArray())
+        // Projectiles vs Zombies (only if projectiles list is not null)
+        if (projectiles != null)
         {
-            if (!projectile.IsActive) continue;
-            foreach (var zombie in zombies)
+            foreach (var projectile in projectiles.ToArray())
             {
-                if (zombie.IsDead) continue;
-                if (projectile.Bounds.Intersects(zombie.Bounds))
+                if (!projectile.IsActive) continue;
+                foreach (var zombie in zombies)
                 {
-                    zombie.TakeDamage(projectile.Damage);
-                    projectile.IsActive = false;
-                    break;
+                    if (zombie.IsDead) continue;
+                    if (projectile.Bounds.Intersects(zombie.Bounds))
+                    {
+                        zombie.TakeDamage(projectile.Damage);
+                        projectile.IsActive = false;
+                        break;
+                    }
                 }
             }
         }
@@ -49,7 +56,7 @@ public class CollisionSystem
             if (zombie.Bounds.Intersects(generator.Bounds))
             {
                 generator.TakeDamage(zombie.Damage);
-                zombie.TakeDamage(zombie.MaxHealth); // Zombie dies after attacking generator
+                zombie.TakeDamage(zombie.MaxHealth);
             }
         }
 

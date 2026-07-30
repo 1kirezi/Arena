@@ -4,5 +4,7 @@ public enum GameState
 {
     Menu,
     Playing,
-    GameOver
+    GameOver,
+
+    Winner
 }

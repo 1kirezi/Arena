@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Arena.Game")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d8526f3d30f8e599ce7cde6f7b0164b6fcbd207c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+add143198258768283b37463ea391d57ef8061d1")]
 [assembly: System.Reflection.AssemblyProductAttribute("Arena.Game")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Arena.Game")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

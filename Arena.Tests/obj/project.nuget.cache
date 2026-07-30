@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UGA7rwK6RLI=",
+  "dgSpecHash": "8KTQJ0FA5mQ=",
   "success": true,
-  "projectFilePath": "C:\\game\\Arena\\Arena.Tests\\Arena.Tests.csproj",
+  "projectFilePath": "C:\\game\\arena\\Arena.Tests\\Arena.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\GK TECH\\.nuget\\packages\\coverlet.collector\\6.0.4\\coverlet.collector.6.0.4.nupkg.sha512",
     "C:\\Users\\GK TECH\\.nuget\\packages\\microsoft.applicationinsights\\2.22.0\\microsoft.applicationinsights.2.22.0.nupkg.sha512",

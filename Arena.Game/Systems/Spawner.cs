@@ -73,6 +73,20 @@ public class Spawner
         Zombies.Add(zombie);
     }
 
+public void SpawnSingleZombie(float healthMultiplier, float speedMultiplier)
+{
+    Vector2 position = GetRandomEdgePosition();
+    int type = _random.Next(0, 10);
+    Zombie zombie;
+    if (type < 5)
+        zombie = new Walker(position, _walkerTexture, healthMultiplier, speedMultiplier);
+    else if (type < 8)
+        zombie = new Runner(position, _runnerTexture, healthMultiplier, speedMultiplier);
+    else
+        zombie = new Brute(position, _bruteTexture, healthMultiplier, speedMultiplier);
+    Zombies.Add(zombie);
+}
+
     private Vector2 GetRandomEdgePosition()
     {
         int edge = _random.Next(0, 4);

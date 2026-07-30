@@ -13,8 +13,8 @@ C:\game\arena\Arena.Tests\bin\Debug\net10.0\nunit.engine.api.dll
 C:\game\arena\Arena.Tests\bin\Debug\net10.0\nunit.engine.core.dll
 C:\game\arena\Arena.Tests\bin\Debug\net10.0\testcentric.engine.metadata.dll
 C:\game\arena\Arena.Tests\bin\Debug\net10.0\NUnit3.TestAdapter.dll
-C:\game\Arena\Arena.Tests\bin\Debug\net10.0\Arena.Tests.deps.json
-C:\game\Arena\Arena.Tests\bin\Debug\net10.0\Arena.Tests.runtimeconfig.json
+C:\game\arena\Arena.Tests\bin\Debug\net10.0\Arena.Tests.deps.json
+C:\game\arena\Arena.Tests\bin\Debug\net10.0\Arena.Tests.runtimeconfig.json
 C:\game\arena\Arena.Tests\bin\Debug\net10.0\Arena.Tests.dll
 C:\game\arena\Arena.Tests\bin\Debug\net10.0\Arena.Tests.pdb
 C:\game\arena\Arena.Tests\bin\Debug\net10.0\Microsoft.ApplicationInsights.dll
@@ -178,9 +178,9 @@ C:\game\arena\Arena.Tests\obj\Debug\net10.0\Arena.Tests.AssemblyInfoInputs.cache
 C:\game\arena\Arena.Tests\obj\Debug\net10.0\Arena.Tests.AssemblyInfo.cs
 C:\game\arena\Arena.Tests\obj\Debug\net10.0\Arena.Tests.csproj.CoreCompileInputs.cache
 C:\game\arena\Arena.Tests\obj\Debug\net10.0\Arena.Tests.sourcelink.json
-C:\game\Arena\Arena.Tests\obj\Debug\net10.0\Arena.Te.490AD0BB.Up2Date
+C:\game\arena\Arena.Tests\obj\Debug\net10.0\Arena.Te.490AD0BB.Up2Date
 C:\game\arena\Arena.Tests\obj\Debug\net10.0\Arena.Tests.dll
 C:\game\arena\Arena.Tests\obj\Debug\net10.0\refint\Arena.Tests.dll
 C:\game\arena\Arena.Tests\obj\Debug\net10.0\Arena.Tests.pdb
-C:\game\Arena\Arena.Tests\obj\Debug\net10.0\Arena.Tests.genruntimeconfig.cache
-C:\game\Arena\Arena.Tests\obj\Debug\net10.0\ref\Arena.Tests.dll
+C:\game\arena\Arena.Tests\obj\Debug\net10.0\Arena.Tests.genruntimeconfig.cache
+C:\game\arena\Arena.Tests\obj\Debug\net10.0\ref\Arena.Tests.dll

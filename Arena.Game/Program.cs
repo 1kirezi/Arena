@@ -15,7 +15,7 @@ namespace Arena.Game
             }
             catch (Exception ex)
             {
-                Console.WriteLine("=== GAME CRASHED ===");
+                Console.WriteLine("=== CRASH ===");
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine("Press any key to exit...");
                 Console.ReadKey();
