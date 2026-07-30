@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>C:/game/arena/Arena.Game/Content/Font.spritefont</SourceFile>
+  <SourceTime>2026-07-30T16:41:16.8986519+02:00</SourceTime>
+  <DestFile>C:/game/arena/Arena.Game/Content/bin/DesktopGL/Content/Font.xnb</DestFile>
+  <DestTime>2026-07-30T16:43:43.572101+02:00</DestTime>
+  <Importer>FontDescriptionImporter</Importer>
+  <ImporterTime>2026-07-15T18:21:24+02:00</ImporterTime>
+  <Processor>FontDescriptionProcessor</Processor>
+  <ProcessorTime>2026-07-15T18:21:24+02:00</ProcessorTime>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

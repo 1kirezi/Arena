@@ -81,11 +81,8 @@ public class Game1 : Microsoft.Xna.Framework.Game
         _projectileTexture = CreateTexture(8, 8, Color.Yellow);
         _powerUpTexture = CreateTexture(24, 24, Color.Cyan);
 
-        // Load font (you'll need to add a sprite font to Content)
-        // _font = Content.Load<SpriteFont>("Font");
-
-        // Use default font if not available - you should add a real font
-        _font = CreateDefaultFont();
+        // Load the font
+        _font = Content.Load<SpriteFont>("Font");
 
         // Initialize entities
         _player = new Player(new Vector2(400, 300), _playerTexture);
