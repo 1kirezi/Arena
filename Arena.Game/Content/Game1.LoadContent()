@@ -1,1 +1,4 @@
-_font = Content.Load<SpriteFont>("Font");
+protected override void LoadContent()
+{
+_spriteBatch = new SpriteBatch(GraphicsDevice); // Comment out all your Content.Load lines for now base.LoadContent();
+}
